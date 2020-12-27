@@ -92,5 +92,6 @@ ${color}Swap Usage:${color1} $swap/$swapmax - $swapperc% ${swapbar 4}${color}
 ${font sans-serif:bold:size=10}DISKS ${hr 2}${font}
 ${color}nvme ${color1}${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color}sda2 ${color1}${fs_used /mnt/sda2}/${fs_size /mnt/sda2} ${fs_bar 6 /mnt/sda2}
+${color}sdb1 ${color1}${fs_used /mnt/sdb1}/${fs_size /mnt/sdb1} ${fs_bar 6 /mnt/sdb1}
 ]]
 
