@@ -118,3 +118,6 @@ done
 unset file
 
 complete -C /usr/local/bin/terraform terraform
+
+# Load rbenv automatically
+eval "$(rbenv init -)"
