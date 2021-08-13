@@ -121,3 +121,7 @@ complete -C /usr/local/bin/terraform terraform
 
 # Load rbenv automatically
 eval "$(rbenv init -)"
+
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/bin/blender-2.93.2-linux-x64
+export GOPATH=$HOME/go
