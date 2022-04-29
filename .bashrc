@@ -119,6 +119,12 @@ unset file
 
 complete -C /usr/local/bin/terraform terraform
 
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
+dr='--dry-run=client -o yaml'
+fd='--force --grace-period=0'
+
 # Load rbenv automatically
 eval "$(rbenv init -)"
 
