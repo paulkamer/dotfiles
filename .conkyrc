@@ -1,0 +1,83 @@
+-- Conky, a system monitor https://github.com/brndnmtthws/conky
+--
+-- This configuration file is Lua code. You can write code in here, and it will
+-- execute when Conky loads. You can use it to generate your own advanced
+-- configurations.
+--
+-- Try this (remove the `--`):
+--
+--   print("Loading Conky config")
+--
+-- For more on Lua, see:
+-- https://www.lua.org/pil/contents.html
+--
+-- For all Conky configuration options, see:
+-- https://conky.cc/
+
+conky.config = {
+    alignment = 'top_left',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'DejaVu Sans Mono:size=12',
+    gap_x = 50,
+    gap_y = 60,
+    minimum_width = 5,
+    minimum_height = 600, 
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 90,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+conky.text = [[
+${alignc}${time %A %B %d, %Y}
+${voffset 16}${font sans-serif:bold:size=18}${alignc}${time %H:%M:%S}${font} ${time %Z}
+${font}${voffset -4}
+${font sans-serif:bold:size=10}SYSTEM ${hr 2}${font}
+Kernel: ${color1}$kernel${color}      ${alignr}Uptime: ${color1}$uptime${color}
+Load: ${color1}$loadavg${color}
+
+${font sans-serif:bold:size=10}CPU ${exec lscpu | grep 'Model name' | cut -f 2 -d ":" | awk '{$1=$1}1'}  @${freq} MHz ${hr 2}${font}
+${color}CPU 1: ${color1}${cpu cpu1}% ${goto 100}${cpubar cpu1 10,100}  	${goto 220}${color}CPU 4: ${color1}${cpu cpu4}% ${cpubar cpu4 10,100} 
+${color}CPU 2: ${color1}${cpu cpu2}% ${goto 100}${cpubar cpu2 10,100}  	${goto 220}${color}CPU 5: ${color1}${cpu cpu5}% ${cpubar cpu5 10,100} 
+${color}CPU 3: ${color1}${cpu cpu3}% ${goto 100}${cpubar cpu3 10,100}  	${goto 220}${color}CPU 6: ${color1}${cpu cpu6}% ${cpubar cpu6 10,100} 
+${color}Processes:${color1} $processes  ${color}Running:${color1} $running_processes${color}
+${color}Temperature: ${color1}${hwmon 1 temp 1}°C${color}
+${color}Fan 1: ${color1}${hwmon 3 fan 1} rpm
+
+${font sans-serif:bold:size=10}RAM ${hr 2}${font}
+${color}RAM Usage:${color1} $mem/$memmax - $memperc% ${membar 4}
+${color}Swap Usage:${color1} $swap/$swapmax - $swapperc% ${swapbar 4}${color}
+
+${font sans-serif:bold:size=10}DISKS ${hr 2}${font}
+${color}nvme ${color1}${fs_used /}/${fs_size /} ${fs_bar 6 /}
+#${color}sda1 ${color1}${fs_used /dev/sda1}/${fs_size /dev/sda1} ${fs_bar 6 /dev/sda1}
+#${color}sda2 ${color1}${fs_used /dev/sda2}/${fs_size /dev/sda2} ${fs_bar 6 /dev/sda2}
+#${color}sdb1 ${color1}${fs_used /dev/sdb1}/${fs_size /dev/sdb1} ${fs_bar 6 /dev/sdb1}
+
+]]
