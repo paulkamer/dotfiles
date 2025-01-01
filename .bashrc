@@ -117,7 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 ##############
-alias dotfiles='/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME'
 alias cls='clear'
 alias k='kubectl'
 
