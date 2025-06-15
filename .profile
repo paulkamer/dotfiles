@@ -28,3 +28,9 @@ fi
 
 export PATH=$PATH:/usr/local/go/bin
 
+export PATH=/opt/amdgpu-pro/bin:/opt/amdgpu/bin:$PATH
+
+export PATH=$PATH:/opt/anaconda3/bin
+export PATH=$PATH:/opt/
+
+. "$HOME/.cargo/env"
